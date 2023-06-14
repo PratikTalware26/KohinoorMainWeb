@@ -4,7 +4,7 @@ import mainLogo from "../assets/Kohinoor new logo for website-01 (1)-2.webp"
 
 const Navbar = () => {
   return (
-    <div>
+    <div className="nav-cont-parent">
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
@@ -39,7 +39,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <button className="nav-link btn">SALES ENQUIRY</button>
+                <button className="nav-link btn main-btn">SALES ENQUIRY</button>
               </li>
             </ul>
           </div>

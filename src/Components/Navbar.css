@@ -1,13 +1,19 @@
+.nav-cont-parent{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
 .navbar-brand img{
     width: 150px;
 }
 .navbar{
     background: #5D5E5E !important;
 }
-.nav-item button{
-    background: var(--colorPrimary);
-    color: white;
+.main-btn{
+    background: var(--colorPrimary) !important;
+    color: white !important;
 }
-.nav-item button:hover{
-    background:#E4432D ;
+.main-btn:hover{
+    background:#E4432D !important;
+    color: black !important;
 }
