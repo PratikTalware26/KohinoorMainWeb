@@ -1,0 +1,13 @@
+.navbar-brand img{
+    width: 150px;
+}
+.navbar{
+    background: #5D5E5E !important;
+}
+.nav-item button{
+    background: var(--colorPrimary);
+    color: white;
+}
+.nav-item button:hover{
+    background:#E4432D ;
+}
