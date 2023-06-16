@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import mainImg from "../assets/37th Anniversary of Kohinoor Group.webp";
 import "./Enquiry.css";
 import mainLogo from "../assets/Kohinoor logo-01.png";
-// import Disclaimer from "./Disclaimer";
+import Disclaimer from "./Disclaimer";
 import { useLocation, useNavigate } from "react-router-dom";
 // import axios from "axios";
 // import { ThanksContext } from "../App";
@@ -134,7 +134,7 @@ const Enquiry = () => {
           </div>
         </div>
       </div>
-      {/* <Disclaimer /> */}
+      <Disclaimer />
     </>
   );
 };

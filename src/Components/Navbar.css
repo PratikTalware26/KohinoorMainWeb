@@ -17,3 +17,16 @@
     background:#E4432D !important;
     color: black !important;
 }
+.nav-cont-parent {
+    /* Rest of the styles... */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .visible {
+    transform: translateY(0);
+  }
+  
+  .hidden {
+    transform: translateY(-100%);
+  }
+  
