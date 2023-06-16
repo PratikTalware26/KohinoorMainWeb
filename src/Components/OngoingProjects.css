@@ -1,0 +1,33 @@
+.project-parent{
+    background: #EFEFEF;
+}
+.project-cards-cont .card{
+    padding: 15px;
+    position: relative;
+}
+.project-cont .card img{
+    width: 100%;
+    height: 200px;
+}
+.project-cont{
+    width: 90%;
+    padding: 20px 40px;
+}
+.project-cont .card span{
+    position: absolute;
+    top: -15px;
+    background-color: #ee402f;
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 14px;
+    color: #fff;
+}
+.project-cont .card h5{
+    margin: 20px 0;
+}
+.project-cont .swiper-wrapper{
+    margin: 20px 0;
+}
+.project-desc-cont p{
+    font-size: small;
+}
