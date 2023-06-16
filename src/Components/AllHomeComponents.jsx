@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Home from './Home'
 import OngoingProjects from './OngoingProjects'
 import Enquiry from './Enquiry'
+import Blogs from './Blogs'
 
 const AllHomeComponents = () => {
   return (
@@ -10,6 +11,7 @@ const AllHomeComponents = () => {
         <Navbar/>
         <Home/>
         <OngoingProjects/>
+        <Blogs/>
         <Enquiry/>
     </div>
   )
