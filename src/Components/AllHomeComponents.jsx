@@ -4,12 +4,14 @@ import Home from './Home'
 import OngoingProjects from './OngoingProjects'
 import Enquiry from './Enquiry'
 import Blogs from './Blogs'
+import About from './About'
 
 const AllHomeComponents = () => {
   return (
     <div>
         <Navbar/>
         <Home/>
+        <About/>
         <OngoingProjects/>
         <Blogs/>
         <Enquiry/>

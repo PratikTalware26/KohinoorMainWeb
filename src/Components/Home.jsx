@@ -161,7 +161,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="home-cont" id="home">
       <div>
         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
           <SwiperSlide>

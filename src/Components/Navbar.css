@@ -1,32 +1,46 @@
-.nav-cont-parent{
-    position: sticky;
-    top: 0;
-    z-index: 999;
+.nav-cont-parent {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
 }
-.navbar-brand img{
-    width: 150px;
+.navbar-brand img {
+  width: 150px;
 }
-.navbar{
-    background: #5D5E5E !important;
+.navbar {
+  background: #5d5e5e !important;
 }
-.main-btn{
-    background: var(--colorPrimary) !important;
-    color: white !important;
+.navbar-nav{
+    gap: 1vw;
 }
-.main-btn:hover{
-    background:#E4432D !important;
-    color: black !important;
+.main-btn {
+  background: var(--colorPrimary) !important;
+  color: white !important;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* padding: 5px !important; */
+}
+.main-btn:hover {
+  background: #e4432d !important;
+  color: black !important;
 }
 .nav-cont-parent {
-    /* Rest of the styles... */
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .visible {
-    transform: translateY(0);
-  }
-  
-  .hidden {
-    transform: translateY(-100%);
-  }
-  
+  /* Rest of the styles... */
+  transition: transform 0.3s ease-in-out;
+}
+
+.visible {
+  transform: translateY(0);
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
+/* @media screen and (max-width:992px) {
+    .nav-cont-parent{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+} */

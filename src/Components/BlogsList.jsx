@@ -32,14 +32,14 @@ const BlogsList = () => {
           </Link>
         </div>
         <div className="card">
-          <Link to="/kohinoordeveloper_group" onClick={handleBlogLinkClick}>
+            <Link to="/kohinoor_sportsville">       
             <div className='blog-img-cont blog-img2'>
             </div>
             <div className="p-2">
               <h6>Kohinoor Developer Group: </h6>
-              <p className="small">Redefining Excellence in Real Estate</p>
+              <p className="small">Unveiling Kohinoor Sportsville - <small>The Perfect Blend of Luxury and Convenience</small></p>
             </div>
-          </Link>
+            </Link>
         </div>
         <div className="card">
           <Link to="/kohinoor_hinjewadi_central" onClick={handleBlogLinkClick}>
@@ -52,44 +52,44 @@ const BlogsList = () => {
           </Link>
         </div>
         <div className="card">
-          <Link to="/lodha_builders" onClick={handleBlogLinkClick}>
+          <Link to="/kohinoor_vivacity_dhanori" onClick={handleBlogLinkClick}>
             <div className='blog-img-cont blog-img5'>
             </div>
             <div className="p-2">
-              <h6>Luxurious Living Redefined:</h6>
-              <p className="small">Exploring Lodha Builders' Exquisite Projects</p>
+              <h6>Kohinoor Developer Group: </h6>
+              <p className="small">Redefining Urban Living with Kohinoor Viva City in Dhanori</p>
             </div>
           </Link>
         </div>
         <div className="card">
-          <Link to="/lodha_giardino" onClick={handleBlogLinkClick}>
+          <Link to="/kohinoor_courtyard" onClick={handleBlogLinkClick}>
             <div className='blog-img-cont blog-img6'>
             </div>
             <div className="p-2">
               <h6>
-                Exploring the Key Features and Location Benefits of Lodha Pune
+              Kohinoor Courtyard:
               </h6>
-              {/* <p>A Haven of Lifestyle and Luxury by Lodha</p> */}
+              <p className="small">The Epitome of Luxurious Living in Wakad</p>
             </div>
           </Link>
         </div>
         <div className="card">
-          <Link to="/lodha_panache" onClick={handleBlogLinkClick}>
+          <Link to="/kohinoordeveloper_group" onClick={handleBlogLinkClick}>
             <div className='blog-img-cont blog-img7'>
             </div>
             <div className="p-2">
-              <h6>Unlocking the Marvels of Palava:</h6>
-              <p className="small">A Haven of Lifestyle and Luxury by Lodha</p>
+              <h6>Kohinoor Developer Group: </h6>
+              <p className="small">Redefining Excellence in Real Estate</p>
             </div>
           </Link>
         </div>
         <div className="card">
-          <Link to="/lodha_panache" onClick={handleBlogLinkClick}>
+          <Link to="/kohinoor_westview_reserve" onClick={handleBlogLinkClick}>
             <div className='blog-img-cont blog-img8'>
             </div>
             <div className="p-2">
-              <h6>Unlocking the Marvels of Palava:</h6>
-              <p className="small">A Haven of Lifestyle and Luxury by Lodha</p>
+              <h6>Kohinoor Westview Reserve: </h6>
+              <p className="small">Your Gateway to Luxury Living in Wakad</p>
             </div>
           </Link>
         </div>

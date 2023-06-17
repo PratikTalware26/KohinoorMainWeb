@@ -10,8 +10,6 @@ const Navbar = () => {
   //Handeling Navbar toggling icon
   const [isMenuOpen, setIsmenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
-  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     // setTimeout(()=>{
@@ -20,26 +18,10 @@ const Navbar = () => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      const scrollThreshold = 100;
-
-      if (prevScrollPos > currentScrollPos || currentScrollPos <= scrollThreshold) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-
-      setPrevScrollPos(currentScrollPos);
-    };
-
-    window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -113,7 +95,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    if (searchParams.get("utm_source") === "google") {
+    if (searchParams.get("utm_source")) {
       setEnquiryData((prevData) => ({
         ...prevData,
         utm_source: searchParams.get("utm_source"),
@@ -157,7 +139,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className={`nav-cont-parent ${isVisible ? "visible" : "hidden"}`}>
+    <div className="nav-cont-parent">
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
@@ -178,18 +160,23 @@ const Navbar = () => {
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active text-light" aria-current="page" href="#">
+                <a className="nav-link active text-light" aria-current="page" href="#home">
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-light" href="#">
-                  Features
+                <a className="nav-link text-light" href="#about">
+                  About
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-light" href="#">
-                  Pricing
+                <a className="nav-link text-light" href="#projects">
+                  Ongoing Projects
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link text-light" href="#blogs">
+                  Blogs
                 </a>
               </li>
               <li className="nav-item">

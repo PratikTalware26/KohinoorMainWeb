@@ -150,7 +150,7 @@ const OngoingProjects = () => {
         }
     },[windowWidth])
   return (
-    <div className="project-parent">
+    <div className="project-parent" id="projects">
         <div><h2 className="text-center main-color p-4">ONGOING PROJECTS</h2></div>
     <div className="project-cards-cont">
       <Swiper
