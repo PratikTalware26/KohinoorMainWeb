@@ -6,11 +6,6 @@ import axios from "axios";
 import { ThanksContext } from "../App";
 
 const Navbar = () => {
-  //mobile nav btn opts handeling
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  const handleNavOptsClick = () => {
-    setIsNavbarOpen(!isNavbarOpen);
-  };
   
     const navigate= useNavigate()
   //Thanks state
@@ -128,6 +123,12 @@ const Navbar = () => {
     }, 300); // Duration of the transition in milliseconds
   };
 
+  // //nav opts handeling
+  // const [isNavOpen, setIsnavOpen] = useState(false);
+  // const handleNavOptClick = () => {
+  //   setIsnavOpen(!isNavOpen);
+  // };  
+
   return (
     <div className="nav-cont-parent">
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -147,29 +148,29 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul className={`navbar-nav ${isNavbarOpen ? "show" : ""}`}>
-              <li className="nav-item" onClick={handleNavOptsClick}>
+          <div className={`collapse navbar-collapse justify-content-end ${isMenuOpen ? 'show' : ''}`} id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item" onClick={handleNavClick}>
                 <a className="nav-link active text-light" aria-current="page" href="#home">
                   Home
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" onClick={handleNavClick}>
                 <a className="nav-link text-light" href="#about">
                   About
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" onClick={handleNavClick}>
                 <a className="nav-link text-light" href="#projects">
                   Ongoing Projects
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" onClick={handleNavClick}>
                 <a className="nav-link text-light" href="#blogs">
                   Blogs
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" onClick={handleNavClick}>
                 <button className="nav-link btn main-btn" onClick={()=>setFormpopup(!formPopup)}>SALES ENQUIRY</button>
               </li>
             </ul>
