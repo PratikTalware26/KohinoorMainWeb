@@ -1,42 +1,32 @@
-import React,{useState, useEffect} from "react";
+import React,{useState, useEffect, useContext} from "react";
 import "./Navbar.css"
 import mainLogo from "../assets/Kohinoor new logo for website-01 (1)-2.webp"
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { ThanksContext } from "../App";
 
 const Navbar = () => {
+  //mobile nav btn opts handeling
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const handleNavOptsClick = () => {
+    setIsNavbarOpen(!isNavbarOpen);
+  };
+  
     const navigate= useNavigate()
   //Thanks state
-//   const {setThanksState}= useContext(ThanksContext)
+  const {setThanksState}= useContext(ThanksContext)
   //Handeling Navbar toggling icon
   const [isMenuOpen, setIsmenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    // setTimeout(()=>{
-    //   setFormpopup(!formPopup)
-    // },5000)
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   //handeling click event of nav-btn
-  const [navTransitionClass, setNavTransitionClass] = useState("");
   const handleNavClick = () => {
     if (isMenuOpen) {
-      setNavTransitionClass("");
       setTimeout(() => {
         setIsmenuOpen(false);
       }, 500);
     } else {
       setIsmenuOpen(true);
       setTimeout(() => {
-        setNavTransitionClass("show2");
       }, 10);
     }
   };
@@ -68,23 +58,23 @@ const Navbar = () => {
     e.preventDefault();
     // console.log(enquiryData);
     try {
-    //   const fetchData= async ()=>{
-    //     const jsonData= JSON.stringify(enquiryData)
-    //     await axios.post("https://www.crm.brickfolio.in/api/leads/add_raw_lead", jsonData,{
-    //       headers: {
-    //         "Content-Type": "application/json; charset=utf-8",
-    //         "Access-Control-Allow-Origin": "*",
-    //       },
-    //     }
-    //     )
-    //     .then((res)=>{
-    //       setFormpopup(false)
-    //       setThanksState(true)
-    //       navigate("/thanks")
-    //     })
-    //   }
-    //   fetchData()
-    console.log(enquiryData)
+      const fetchData= async ()=>{
+        const jsonData= JSON.stringify(enquiryData)
+        await axios.post("https://www.crm.brickfolio.in/api/leads/add_raw_lead", jsonData,{
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+        )
+        .then((res)=>{
+          setFormpopup(false)
+          setThanksState(true)
+          navigate("/thanks")
+        })
+      }
+      fetchData()
+    // console.log(enquiryData)
     } catch (error) {
       console.log(error.message)
     }
@@ -158,8 +148,8 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
+            <ul className={`navbar-nav ${isNavbarOpen ? "show" : ""}`}>
+              <li className="nav-item" onClick={handleNavOptsClick}>
                 <a className="nav-link active text-light" aria-current="page" href="#home">
                   Home
                 </a>

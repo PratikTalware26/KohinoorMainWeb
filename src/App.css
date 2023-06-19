@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Mukta&family=Nunito&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Nunito', sans-serif;
 }
 :root{
   --colorPrimary:#ED462F;
@@ -18,4 +20,7 @@
 }
 .swiper-button-prev::after{
   font-size: larger !important;
+}
+.swiper-pagination-bullet-active{
+  background: #5D5E5E !important;
 }

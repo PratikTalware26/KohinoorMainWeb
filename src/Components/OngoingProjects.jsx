@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./OngoingProjects.css";
+import axios from "axios";
 import mainLogo from "../assets/Kohinoor new logo for website-01 (1)-2.webp"
 
 // Import Swiper React components
@@ -23,12 +24,13 @@ import Img8 from "../assets/kohinoor-shangrila-project-thumb-2.webp";
 import Img9 from "../assets/kohinoor-viva-city-project-thumb.webp";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import { ThanksContext } from "../App";
 
 const OngoingProjects = () => {
 
     const navigate= useNavigate()
   //Thanks state
-//   const {setThanksState}= useContext(ThanksContext)
+  const {setThanksState}= useContext(ThanksContext)
 
   //Handeling Form Logic
   //data
@@ -57,23 +59,23 @@ const OngoingProjects = () => {
     e.preventDefault();
     // console.log(enquiryData);
     try {
-    //   const fetchData= async ()=>{
-    //     const jsonData= JSON.stringify(enquiryData)
-    //     await axios.post("https://www.crm.brickfolio.in/api/leads/add_raw_lead", jsonData,{
-    //       headers: {
-    //         "Content-Type": "application/json; charset=utf-8",
-    //         "Access-Control-Allow-Origin": "*",
-    //       },
-    //     }
-    //     )
-    //     .then((res)=>{
-    //       setFormpopup(false)
-    //       setThanksState(true)
-    //       navigate("/thanks")
-    //     })
-    //   }
-    //   fetchData()
-    console.log(enquiryData)
+      const fetchData= async ()=>{
+        const jsonData= JSON.stringify(enquiryData)
+        await axios.post("https://www.crm.brickfolio.in/api/leads/add_raw_lead", jsonData,{
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+        )
+        .then((res)=>{
+          setFormpopup(false)
+          setThanksState(true)
+          navigate("/thanks")
+        })
+      }
+      fetchData()
+    // console.log(enquiryData)
     } catch (error) {
       console.log(error.message)
     }
@@ -84,7 +86,7 @@ const OngoingProjects = () => {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    if (searchParams.get("utm_source") === "google") {
+    if (searchParams.get("utm_source")) {
       setEnquiryData((prevData) => ({
         ...prevData,
         utm_source: searchParams.get("utm_source"),

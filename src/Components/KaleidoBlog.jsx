@@ -27,7 +27,7 @@ const KaleidoBlog = () => {
       <div>
         <h2>Location Benefits:</h2>
         <p>
-        <span className='text-decoration-underline'>1. Strategic Connectivity: </span>Kharadi, located in the eastern corridor of Pune, enjoys excellent connectivity to key destinations within the city. With its proximity to the Pune International Airport, EON IT Park, and the IT hubs of Kharadi, Hadapsar, and Magarpatta, residents of Kohinoor Kaleido can easily commute to their workplaces, saving precious time in their daily routines.
+        1. Strategic Connectivity:Kharadi, located in the eastern corridor of Pune, enjoys excellent connectivity to key destinations within the city. With its proximity to the Pune International Airport, EON IT Park, and the IT hubs of Kharadi, Hadapsar, and Magarpatta, residents of Kohinoor Kaleido can easily commute to their workplaces, saving precious time in their daily routines.
         </p>
         <p>
         2. Educational Institutions: The area around Kharadi is home to numerous reputed educational institutions, making it an ideal choice for families. Renowned schools and colleges such as Symbiosis International School, Lexicon International School, and Symbiosis Institute of Technology are in close proximity, ensuring quality education for children.

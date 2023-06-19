@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { createContext, useState } from 'react'
 import './App.css'
 import AllHomeComponents from './Components/AllHomeComponents'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -14,13 +14,17 @@ import VivaCityDhanoriBlog from './Components/VivaCityDhanoriBlog';
 import CourtyardBlog from './Components/CourtyardBlog';
 import WestviewBlog from './Components/WestviewBlog';
 import SportsvilleBlog from './Components/SportsvilleBlog';
+import Thanks from './Components/Thanks';
+
+export const ThanksContext= createContext()
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [thanksState, setThanksState] = useState(false)
 
   return (
     <div>
       <BrowserRouter>
+      <ThanksContext.Provider value={{thanksState, setThanksState}}>
       <Routes>
         <Route path="/" element={<AllHomeComponents/>}/>
         <Route path="/privacy" element={<PrivacyPolicy/>}/>
@@ -31,7 +35,9 @@ function App() {
       <Route path='/kohinoor_courtyard' element={<CourtyardBlog/>}/>
       <Route path='/kohinoor_sportsville' element={<SportsvilleBlog/>}/>
       <Route path='/kohinoor_westview_reserve' element={<WestviewBlog/>}/>
+      <Route path="/thanks" element={<Thanks/>}/>
       </Routes>
+      </ThanksContext.Provider>
       </BrowserRouter>
     </div>
   )

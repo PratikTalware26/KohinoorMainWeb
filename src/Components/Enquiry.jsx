@@ -4,11 +4,11 @@ import "./Enquiry.css";
 import mainLogo from "../assets/Kohinoor logo-01.png";
 import Disclaimer from "./Disclaimer";
 import { useLocation, useNavigate } from "react-router-dom";
-// import axios from "axios";
-// import { ThanksContext } from "../App";
+import axios from "axios";
+import { ThanksContext } from "../App";
 
 const Enquiry = () => {
-//   const { setThanksState } = useContext(ThanksContext);
+  const { setThanksState } = useContext(ThanksContext);
   const navigate = useNavigate();
   //Handeling Form Logic
   //data
@@ -32,7 +32,7 @@ const Enquiry = () => {
 
   useEffect(() => {
     const searchParams= new URLSearchParams(location.search)
-    if(searchParams.get("utm_source")==="google"){
+    if(searchParams.get("utm_source")){
       setEnquiryData((prevData)=>({
         ...prevData,
         utm_source:searchParams.get("utm_source"),
@@ -54,26 +54,26 @@ const Enquiry = () => {
     e.preventDefault();
     // console.log(queryParam.get("utm_source"));
     try {
-    //   const fetchData = async () => {
-    //     const jsonData = JSON.stringify(enquiryData);
-    //     await axios
-    //       .post(
-    //         "https://www.crm.brickfolio.in/api/leads/add_raw_lead",
-    //         jsonData,
-    //         {
-    //           headers: {
-    //             "Content-Type": "application/json; charset=utf-8",
-    //             "Access-Control-Allow-Origin": "*",
-    //           },
-    //         }
-    //       )
-    //       .then((res) => {
-    //         setThanksState(true);
-    //         navigate("/thanks");
-    //       });
-    //   };
-    //   fetchData();
-      console.log(enquiryData)
+      const fetchData = async () => {
+        const jsonData = JSON.stringify(enquiryData);
+        await axios
+          .post(
+            "https://www.crm.brickfolio.in/api/leads/add_raw_lead",
+            jsonData,
+            {
+              headers: {
+                "Content-Type": "application/json; charset=utf-8",
+                "Access-Control-Allow-Origin": "*",
+              },
+            }
+          )
+          .then((res) => {
+            setThanksState(true);
+            navigate("/thanks");
+          });
+      };
+      fetchData();
+      // console.log(enquiryData)
     } catch (error) {
       console.log(error.message);
     }

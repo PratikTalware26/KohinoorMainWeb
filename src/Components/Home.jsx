@@ -1,13 +1,15 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Home.css";
-import mainLogo from "../assets/Kohinoor new logo for website-01 (1)-2.webp"; // Import Swiper React components
+import axios from "axios";
+import mainLogo from "../assets/Kohinoor new logo for website-01 (1)-2.webp"; 
+// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 // import required modules
-import { Navigation } from "swiper";
+import { Navigation, Autoplay, Pagination } from "swiper";
 
 import Img1 from "../assets/abhimaan-home-page-banner.webp";
 import Img2 from "../assets/kbt-home-desktop-banner.webp";
@@ -24,13 +26,13 @@ import MobImg5 from "../assets/kohinoor-shangrila-mobile-banner.jpeg";
 import MobImg6 from "../assets/wvr-overview-mobile-banner-new.webp";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import { ThanksContext } from "../App";
 
 const Home = () => {
   const navigate = useNavigate();
   //Thanks state
-  //   const {setThanksState}= useContext(ThanksContext)
+    const {setThanksState}= useContext(ThanksContext)
   //Handeling Navbar toggling icon
-  const [isMenuOpen, setIsmenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -46,22 +48,6 @@ const Home = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  //handeling click event of nav-btn
-  //   const [navTransitionClass, setNavTransitionClass] = useState("");
-  //   const handleNavClick = () => {
-  //     if (isMenuOpen) {
-  //       setNavTransitionClass("");
-  //       setTimeout(() => {
-  //         setIsmenuOpen(false);
-  //       }, 500);
-  //     } else {
-  //       setIsmenuOpen(true);
-  //       setTimeout(() => {
-  //         setNavTransitionClass("show2");
-  //       }, 10);
-  //     }
-  //   };
 
   //Handeling Form Logic
   //data
@@ -90,23 +76,23 @@ const Home = () => {
     e.preventDefault();
     // console.log(enquiryData);
     try {
-      //   const fetchData= async ()=>{
-      //     const jsonData= JSON.stringify(enquiryData)
-      //     await axios.post("https://www.crm.brickfolio.in/api/leads/add_raw_lead", jsonData,{
-      //       headers: {
-      //         "Content-Type": "application/json; charset=utf-8",
-      //         "Access-Control-Allow-Origin": "*",
-      //       },
-      //     }
-      //     )
-      //     .then((res)=>{
-      //       setFormpopup(false)
-      //       setThanksState(true)
-      //       navigate("/thanks")
-      //     })
-      //   }
-      //   fetchData()
-      console.log(enquiryData);
+        const fetchData= async ()=>{
+          const jsonData= JSON.stringify(enquiryData)
+          await axios.post("https://www.crm.brickfolio.in/api/leads/add_raw_lead", jsonData,{
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+          )
+          .then((res)=>{
+            setFormpopup(false)
+            setThanksState(true)
+            navigate("/thanks")
+          })
+        }
+        fetchData()
+      // console.log(enquiryData);
     } catch (error) {
       console.log(error.message);
     }
@@ -117,7 +103,7 @@ const Home = () => {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    if (searchParams.get("utm_source") === "google") {
+    if (searchParams.get("utm_source")) {
       setEnquiryData((prevData) => ({
         ...prevData,
         utm_source: searchParams.get("utm_source"),
@@ -163,7 +149,7 @@ const Home = () => {
   return (
     <div className="home-cont" id="home">
       <div>
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+        <Swiper navigation={true} pagination={{dynamicBullets:true, clickable:true}} autoplay={{delay:5000}} modules={[Navigation, Autoplay, Pagination]} className="mySwiper">
           <SwiperSlide>
             <div>
               {windowWidth < 800 ? (
