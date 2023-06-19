@@ -5,6 +5,7 @@ import OngoingProjects from './OngoingProjects'
 import Enquiry from './Enquiry'
 import Blogs from './Blogs'
 import About from './About'
+import BottomButtons from './BottomButtons'
 
 const AllHomeComponents = () => {
   return (
@@ -15,6 +16,7 @@ const AllHomeComponents = () => {
         <OngoingProjects/>
         <Blogs/>
         <Enquiry/>
+        <BottomButtons/>
     </div>
   )
 }
