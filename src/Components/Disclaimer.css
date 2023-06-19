@@ -10,7 +10,8 @@
     padding: 10px;
 }
 .disclaimer-head span, .disclaimer span{
-    color: #8a5f1d;
+    color:rgb(3, 168, 223);
+    text-decoration: underline;
 }
 .disclaimer{
     font-size: 11px;

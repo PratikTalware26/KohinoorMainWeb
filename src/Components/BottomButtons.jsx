@@ -144,15 +144,17 @@ const BottomButtons = () => {
       <>
         <div className={`bottom-btn-cont ${visible ? "visible" : ""}`}>
           <div>
-            <button onClick={()=>setFormpopup(!formPopup)}>
+            <a href="tel:+919730003331">
+            <button>
               <i className="fas fa-phone-alt m-1" aria-hidden="true"></i>Enquiry
             </button>
+            </a>
           </div>
           <div>
             <button onClick={()=>setFormpopup(!formPopup)}>₹ Cost Sheet</button>
           </div>
           <div>
-            <a href="https://api.whatsapp.com/send?phone=919730003331&text=Hello!%20I%20would%20like%20to%20know%20more%20about%20VTP%20Earth%201%20Project">
+            <a href="https://api.whatsapp.com/send?phone=919730003331&text=Hello!%20I%20would%20like%20to%20know%20more%20about%20Kohinoor%20Projects.">
             <button>
               <i className="fab fa-whatsapp m-1" aria-hidden="true"></i>Whatsapp
             </button>

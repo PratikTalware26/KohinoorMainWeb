@@ -24,3 +24,7 @@
 .swiper-pagination-bullet-active{
   background: #5D5E5E !important;
 }
+a{
+  color: inherit !important;
+  text-decoration: none !important;
+}

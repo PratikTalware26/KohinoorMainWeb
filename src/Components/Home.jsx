@@ -207,7 +207,7 @@ const Home = () => {
         </Swiper>
       </div>
 
-      <div className="text-center py-5">
+      <div className="text-center py-5 home-desc">
         <div className="d-flex justify-content-evenly projects-hlt">
           <div>
             <h2>39+</h2>
