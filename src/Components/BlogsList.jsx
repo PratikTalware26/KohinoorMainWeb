@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./BlogsList.css"
 
 const BlogsList = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     const handleBlogLinkClick = () => {
         const isMobileView = window.innerWidth <= 900; // Define the breakpoint for mobile view
         if (isMobileView) {
