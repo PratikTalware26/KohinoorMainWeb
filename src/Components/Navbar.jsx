@@ -123,14 +123,27 @@ const Navbar = () => {
     }, 300); // Duration of the transition in milliseconds
   };
 
-  // //nav opts handeling
-  // const [isNavOpen, setIsnavOpen] = useState(false);
-  // const handleNavOptClick = () => {
-  //   setIsnavOpen(!isNavOpen);
-  // };  
+  //Nav up-down appearence on scroll
+  const [isNavVisible, setIsNavVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const isScrollingUp = prevScrollPos > currentScrollPos;
+
+      setIsNavVisible(isScrollingUp || currentScrollPos < 50);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos]);
 
   return (
-    <div className="nav-cont-parent">
+    <div className={`nav-cont-parent ${isNavVisible ? "" : "hidden"}`}>
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
