@@ -245,8 +245,8 @@ const Home = () => {
       </div>
 
       {formPopup && (
-        <div className={`popupContainer ${isExiting ? "exit" : ""}`}>
-          <div className={`popup ${transitionClass}`}>
+        <div className={`popupContainer ${isExiting ? "exit" : ""}`} onClick={closePopup}>
+          <div className={`popup ${transitionClass}`} onClick={(e)=>e.stopPropagation()}>
             <div className="popup-img-cont">
               <img src={mainLogo} alt="" />
             </div>
